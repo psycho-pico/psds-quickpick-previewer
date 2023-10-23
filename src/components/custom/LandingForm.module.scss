@@ -1,0 +1,33 @@
+.loginScroll {
+    &::-webkit-scrollbar {
+        width: .3rem;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: rgba(0, 0, 0, 0);
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: rgba(0, 0, 0, 0);
+        border-radius: 5px;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+        background: rgba(0, 0, 0, 0);
+    }
+
+    &:hover {
+        &::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, .05);
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background: rgba(0, 0, 0, .1);
+            border-radius: 5px;
+        }
+
+        &::-webkit-scrollbar-thumb:hover {
+            background: rgba(0, 0, 0, .2);
+        }
+    }
+}
