@@ -6,8 +6,6 @@ import LandingIllustration from "@/src/components/custom/LandingIllustration";
 import PhoneScreen from "@/src/components/custom/PhoneScreen";
 import ScreenController from "@/src/components/custom/ScreenController";
 
-
-
 export default function Component() {
     const defaultScreenRatio = [9, 16];
     const maxSizeForFullScreen = "md";

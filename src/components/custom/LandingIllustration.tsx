@@ -1,6 +1,6 @@
 "use client";
 
-import {FunctionComponent, useEffect, useState} from "react";
+import {FunctionComponent} from "react";
 import Image from "next/image";
 import landingIllustration from '@/public/login-illustration.jpg'
 

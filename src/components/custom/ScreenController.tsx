@@ -5,7 +5,6 @@ import {Label} from "@/src/components/ui/label";
 import {Switch} from "@/src/components/ui/switch";
 import React from "react";
 
-
 interface ScreenControllerProps {
     maxSizeForFullScreen: string;
     onChangeRatioWidth: (event: React.ChangeEvent<HTMLInputElement>) => void;
