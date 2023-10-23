@@ -3,28 +3,25 @@
 import React, {FunctionComponent, useEffect, useState} from "react";
 
 interface PhoneScreenProps {
-    children?: React.ReactNode | undefined,
-    maxSizeForFullScreen?: string | undefined,
-    phoneScreenRatio?: number | undefined,
-    marginVertical?: number | undefined
+    children?: React.ReactNode;
+    maxSizeForFullScreen?: string;
+    phoneScreenRatio?: number;
+    marginVertical?: number;
 }
 
 const PhoneScreen: FunctionComponent<PhoneScreenProps> = ({
                                                               children,
-                                                              maxSizeForFullScreen,
-                                                              phoneScreenRatio,
-                                                              marginVertical
+                                                              maxSizeForFullScreen = "md",
+                                                              phoneScreenRatio = 9 / 16,
+                                                              marginVertical = 38
                                                           }) => {
     const [simulatorWidth, setSimulatorWidth] = useState(0);
     const [simulatorHeight, setSimulatorHeight] = useState(0);
 
     useEffect(() => {
-    }, []);
-
-    useEffect(() => {
         const handleResize = () => {
-            const height = window.innerHeight - (marginVertical ?? 0) * 2;
-            const width = height * (phoneScreenRatio ?? 1);
+            const height = window.innerHeight - marginVertical * 2;
+            const width = height * phoneScreenRatio;
             setSimulatorHeight(height);
             setSimulatorWidth(width);
         };
@@ -33,7 +30,7 @@ const PhoneScreen: FunctionComponent<PhoneScreenProps> = ({
         return () => {
             window.removeEventListener('resize', handleResize);
         };
-    }, [phoneScreenRatio]);
+    }, [phoneScreenRatio, marginVertical]);
 
     return (
         <div className={`bg-white transition rounded-lg overflow-hidden max-md:!rounded-none max-md:!h-full max-md:!w-full`}
@@ -41,12 +38,6 @@ const PhoneScreen: FunctionComponent<PhoneScreenProps> = ({
             {children}
         </div>
     );
-}
-
-PhoneScreen.defaultProps = {
-    maxSizeForFullScreen: "md",
-    phoneScreenRatio: 9 / 16,
-    marginVertical: 38
 };
 
 export default PhoneScreen;

@@ -14,7 +14,7 @@ const Login = () => {
             <h5 className="text-lg font-extrabold pb-6">Login</h5>
             <div className="grid gap-2 mb-4">
                 <Input id="username"
-                       type="username"
+                       type="text"
                        placeholder="Nomor handphone / email" />
             </div>
             <div className="grid gap-2 mb-4">

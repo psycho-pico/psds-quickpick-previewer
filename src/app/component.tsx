@@ -13,19 +13,23 @@ export default function Component() {
     const [illustrationHeightInPercent, setIllustrationHeightInPercent] = useState(38);
     const [phoneScreenRatioWidth, setPhoneScreenRatioWidth] = useState(defaultScreenRatio[0]);
     const [phoneScreenRatioHeight, setPhoneScreenRatioHeight] = useState(defaultScreenRatio[1]);
-    const [phoneScreenRatio, setPhoneScreenRatio] = useState(defaultScreenRatio[0] / defaultScreenRatio[1] );
+    const [phoneScreenRatio, setPhoneScreenRatio] = useState(defaultScreenRatio[0] / defaultScreenRatio[1]);
     const [quickPickToggle, setQuickPickToggle] = useState(true);
+    const [illustrationPlacement, setIllustrationPlacement] = useState("placementCenter");
+    const [illustrationBgColor, setIllustrationBgColor] = useState("#004D43");
+    const [gradientColor, setGradientColor] = useState("#004D43");
 
     useEffect(() => {
         setReady(true);
     }, []);
 
     useEffect(() => {
-        if (phoneScreenRatioWidth / phoneScreenRatioHeight === phoneScreenRatio) {
+        const newRatio = phoneScreenRatioWidth / phoneScreenRatioHeight;
+        if (newRatio === phoneScreenRatio) {
             return;
         }
-        setPhoneScreenRatio(phoneScreenRatioWidth / phoneScreenRatioHeight);
-    }, [phoneScreenRatioWidth, phoneScreenRatioHeight]);
+        setPhoneScreenRatio(newRatio);
+    }, [phoneScreenRatioWidth, phoneScreenRatioHeight, phoneScreenRatio]);
 
     const handleOnChangeRatioWidth = (event: React.ChangeEvent<HTMLInputElement>) => {
         const value = parseFloat(event.target.value);
@@ -46,18 +50,34 @@ export default function Component() {
         setIllustrationHeightInPercent(value);
     };
 
-    const handleOnChangeQuickPickToggle = (value:boolean) => {
+    const handleOnChangeQuickPickToggle = (value: boolean) => {
         setQuickPickToggle(value);
+    };
+
+    const onChangeIllustrationPlacement = (value: string | ("placementTop" | "placementCenter" | "placementBottom")) => {
+        setIllustrationPlacement(value);
+    };
+
+    const onChangeIllustrationBgColor = (value: string) => {
+        setIllustrationBgColor(value);
+    };
+
+    const onChangeGradientColor = (value: string) => {
+        setGradientColor(value);
     };
 
     return (
         <>
-            <section className="dark:bg-black-80 light:bg-broccoli-20 h-screen flex-col items-center justify-center mx-auto"
+            <section className="bg-black-80 h-screen flex-col items-center justify-center mx-auto"
                      style={{display: ready ? 'flex' : 'none'}}>
                 <PhoneScreen maxSizeForFullScreen={maxSizeForFullScreen}
                              phoneScreenRatio={phoneScreenRatio}>
-                    <LandingIllustration height={illustrationHeightInPercent} />
-                    <LandingForm illustrationHeightInPercent={illustrationHeightInPercent} quickPick={quickPickToggle} />
+                    <LandingIllustration height={illustrationHeightInPercent}
+                                         illustrationPlacement={illustrationPlacement}
+                                         illustrationBgColor={illustrationBgColor}
+                                         gradientColor={gradientColor} />
+                    <LandingForm illustrationHeightInPercent={illustrationHeightInPercent}
+                                 quickPick={quickPickToggle} />
                 </PhoneScreen>
                 <ScreenController maxSizeForFullScreen={maxSizeForFullScreen}
                                   onChangeRatioWidth={handleOnChangeRatioWidth}
@@ -67,7 +87,13 @@ export default function Component() {
                                   onChangeIllustrationHeight={handleOnChangeIllustrationHeight}
                                   illustrationHeight={illustrationHeightInPercent}
                                   onChangeQuickPickToggle={handleOnChangeQuickPickToggle}
-                                  quickPickToggle={quickPickToggle} />
+                                  quickPickToggle={quickPickToggle}
+                                  onChangeIllustrationPlacement={onChangeIllustrationPlacement}
+                                  illustrationPlacement={illustrationPlacement}
+                                  onChangeIllustrationBgColor={onChangeIllustrationBgColor}
+                                  illustrationBgColor={illustrationBgColor}
+                                  onChangeGradientColor={onChangeGradientColor}
+                                  gradientColor={gradientColor} />
             </section>
         </>
     )

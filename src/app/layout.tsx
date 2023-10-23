@@ -2,6 +2,7 @@ import type {Metadata} from 'next'
 import {Nunito_Sans} from 'next/font/google'
 import '@/src/styles/globals.scss'
 import {ThemeProvider} from "@/src/components/theme-provider";
+import React from "react";
 
 const nunito = Nunito_Sans({subsets: ['latin']})
 

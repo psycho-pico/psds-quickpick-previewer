@@ -6,12 +6,13 @@ import Login from "@/src/components/custom/Login";
 import QuickPick from "@/src/components/custom/QuickPick";
 
 interface LandingFormProps {
-    illustrationHeightInPercent: number | undefined,
-    quickPick: boolean
+    illustrationHeightInPercent: number | undefined;
+    quickPick: boolean;
 }
 
 const LandingForm: FunctionComponent<LandingFormProps> = ({
-                                                              illustrationHeightInPercent, quickPick
+                                                              illustrationHeightInPercent = 50,
+                                                              quickPick = true
                                                           }) => {
     return (
         <div className="bg-white -my-4 rounded-t-xl relative overflow-hidden"
@@ -25,11 +26,5 @@ const LandingForm: FunctionComponent<LandingFormProps> = ({
         </div>
     );
 }
-
-LandingForm.defaultProps = {
-    illustrationHeightInPercent: 50,
-    quickPick: true
-
-};
 
 export default LandingForm;
