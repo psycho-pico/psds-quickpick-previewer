@@ -38,13 +38,18 @@ const Login = () => {
                     Lupa password?
                 </div>
             </div>
-            <div className="flex gap-2 mb-12">
+            <div className="flex gap-2 mb-6">
                 <Button className="w-full"
                         variant="default">
                     Masuk
                 </Button>
                 <Image src={biometricIcon}
+                       className="h-10 w-10"
                        alt="" />
+            </div>
+            <div className="flex gap-1 mb-16 justify-center">
+                <div className="text-xs font-semibold">Belum Punya Akun?</div>
+                <div className="text-xs font-extrabold text-[#00AB4E] cursor-pointer">Daftar</div>
             </div>
             <div className="flex flex-col items-center text-gray-500">
                 <Image src={pegadaianLogo}

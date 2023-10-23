@@ -8,6 +8,7 @@ import menu1 from '@/public/icons/product/sub-menu-1.png';
 import menu2 from '@/public/icons/product/sub-menu-2.png';
 import menu3 from '@/public/icons/product/sub-menu-3.png';
 import menu4 from '@/public/icons/product/sub-menu-4.png';
+import pegadaianLogo from '@/public/pegadaian.png';
 import {Button} from "@/src/components/ui/button";
 
 const QuickPick = () => {
@@ -88,11 +89,18 @@ const QuickPick = () => {
                 </Button>
                 <Image src={biometricIcon}
                        alt=""
-                       className="cursor-pointer" />
+                       className="h-10 w-10 cursor-pointer" />
             </div>
-            <div className="flex gap-1 mb-6 justify-center">
+            <div className="flex gap-1 mb-12 justify-center">
                 <div className="text-xs font-semibold">Belum Punya Akun?</div>
                 <div className="text-xs font-extrabold text-[#00AB4E] cursor-pointer">Daftar</div>
+            </div>
+            <div className="flex flex-col items-center text-gray-500">
+                <Image src={pegadaianLogo}
+                       width={104}
+                       height={22}
+                       alt="" />
+                <p className="text-xs mt-2 text-center">Terdaftar dan diawasi oleh Otoritas Jasa Keuangan (OJK)</p>
             </div>
         </>
     );
