@@ -36,7 +36,7 @@ const PhoneScreen: FunctionComponent<PhoneScreenProps> = ({
     }, [phoneScreenRatio]);
 
     return (
-        <div className={`bg-white transition rounded-lg overflow-hidden max-${maxSizeForFullScreen}:!rounded-none max-${maxSizeForFullScreen}:!h-full max-${maxSizeForFullScreen}:!w-full`}
+        <div className={`bg-white transition rounded-lg overflow-hidden max-md:!rounded-none max-md:!h-full max-md:!w-full`}
              style={{width: simulatorWidth, height: simulatorHeight}}>
             {children}
         </div>

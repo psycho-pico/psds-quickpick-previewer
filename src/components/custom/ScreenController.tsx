@@ -19,7 +19,7 @@ interface ScreenControllerProps {
 
 const ScreenController = (props: ScreenControllerProps) => {
     return (
-        <div className={`fixed absolute left-0 top-0 max-${props.maxSizeForFullScreen}:!hidden m-3`}>
+        <div className={`fixed absolute left-0 top-0 max-md:!hidden m-3`}>
             <div className="grid mb-5">
                 <Label className="text-white mb-1"
                        htmlFor="ratioWidth">Screen Ratio</Label>
